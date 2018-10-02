@@ -1,0 +1,137 @@
+{% load staticfiles %}
+<!DOCTYPE html> 
+<html> 
+<head lang="en"> 
+	<meta charset="UTF-8"> 
+	 
+	<title>Control de prestamos</title>
+	
+	
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimun-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'css/mi_estilo.css' %}">
+
+</head>
+<body>
+<!-- Aca se define el header de nuestro sitio con el bloque menu -->
+
+	{% block menu %} 
+	<header> 
+		<nav class="navbar navbar-inverse navbar-static-top navbar-header-background" 
+		role="navigation"> 
+		<div class="container-fluid"> 
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#miNavegacion"> 
+				<span class="sr-only">
+				Desplegar/ocultar</span> 
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span> 
+				<span class="icon-bar"></span> 
+				</button> 
+				<a href="" class="navbar-brand">Control de prestamos</a> 
+			</div> 
+			<!-- aca inicia el menu --> 
+			<div class="collapse navbar-collapse" id="miNavegacion"> 
+				<ul class="nav navbar-nav"> 
+					<li class="dropdown"> 
+						<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button">Categorias 
+							<span class="caret"></span> 
+						</a> 
+						<ul class="dropdown-menu" role="menu"> 
+							<li><a href="">Carrera</a></li> 
+							<li><a href="">Articulo</a></li> 
+							<li class="divider"></li> 
+							<li><a href="">Estudiante</a></li> 
+							<li><a href="">Prestamo</a></li> 
+						</ul> 
+					</li> 
+					<ul class="nav navbar-nav"> 
+						<li><a href="/">Home</a> </li> 
+						<li><a href="/about">About</a> </li> 
+						<li><a href="/help">Help</a> </li> 
+						<li><a href="/admin">Log in</a> </li> 
+					</ul> 
+				</ul> 
+				<form action="" class="navbar-form navbar-right" role="search"> 
+					<div class="form-group"> 
+						<input type="text" placeholder="Buscar" class="form-control"/> 
+					</div> 
+					<button type="submit" class="btn btn-primary" style=""> 
+						<span class="glyphicon glyphicon-search"></span> 
+					</button>
+				</form>
+			</div>
+			</div> 
+		</nav> 
+	</header> 
+	{% endblock %}
+	<!-- aca se define el titulo de nuestra pagina --> 
+	<div class="jumbotron"> 
+		{% block titulo %} 
+		<h3>Administracion de Prestamos</h3> 
+		<p>Bienvenidos al asistente para la administracion de prestamos</p> 
+		{% endblock %} 
+	</div>
+<div class="container"> 
+	<div class="row"> 
+		<section class="col-md-9"> 
+			{% block content %} 
+			<h4>Este es el contenido principal del sitio</h4> 
+			{% endblock %} 
+		</section> 
+		<aside class="col-md-3 hidden-xs hidden-sm"> 
+			{% block aside %} 
+			<h4>Categorias</h4> 
+			<div class="list-group"> 
+				<a href="" class="list-group-item active">Prestamo App</a> 
+				<a href="" class="list-group-item">Articulo</a> 
+				<a href="" class="list-group-item">Carrera</a> 
+				<a href="" class="list-group-item">Estudiante</a> 
+				<a href="" class="list-group-item">Prestamo</a> 
+				<a href="" class="list-group-item">Otros</a> 
+			</div> 
+			<h4>Articulos recientes</h4> 
+			<a href="" class="list-group-item"> 
+				<h4 class="list-group-item-heading">Gestion de usuarios</h4> 
+				<p class="list-group-item-text"> Capacitate para la gestion de usuario </p> 
+			</a> 
+			{% endblock %} 
+		</aside> 
+	</div>
+</div> 
+<footer> 
+	<div class="container"> 
+		<div class="row"> 
+			{% block footer %} 
+			<div class="col-xs-6"> 
+				<p>Ochoa Garcia, Diego de Jesus</p> 
+			</div> 
+			<div class="col-xs-6"> 
+				<ul class="list-inline text-center"> 
+					<li>
+						<a href="#">Home</a>
+					</li> 
+					<li>
+						<a href="#">Capacitaciones</a>
+					</li> 
+					<li>
+						<a href="#">Contactos</a>
+					</li> 
+				</ul> 
+			</div> 
+			{% endblock %} 
+		</div> 
+	</div> 
+</footer>
+	 
+	
+	<script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	
+	
+	{% block extrajs %}
+	{% endblock %}
+	
+</body>
+</html>

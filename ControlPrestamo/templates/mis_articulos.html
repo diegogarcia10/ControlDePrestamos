@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+<head lang="en"> 
+	<meta charset="UTF-8"> 
+	<title>Lista de articulos</title> 
+</head> 
+<body> 
+	<h1>Bienvenidos</h1> 
+	<h2>Lista de articulos</h2> 
+	<table border=1> 
+		<thead> 
+			<th>Codigo</th> 
+			<th>Nombre</th> 
+			<th>Descripcion</th> 
+			<th>Estado</th> 
+		</thead> 
+		<tbody> 
+			{% for articulo in articulos %} 
+			<!-- articulos es el nombre en el que capturamos los datos en el diccionario que le enviamos de la vista al template {'articulos':Articulo.objects.all()} --> 
+			<tr> 
+				<td>{{ articulo.codigoArticulo }}</td> 
+				<td>{{ articulo.nombreArticulo }}</td> 
+				<td>{{ articulo.descripcion }}</td> 
+				{% if articulo.prestado == False %} 
+					<td>Disponible</td> 
+				{% endif %} 
+				{% if articulo.prestado == True %} 
+					<td>Prestado</td> 
+				{% endif %} 
+			</tr> 
+			{% endfor %} 
+		</tbody> 
+	</table> 
+</body> 
+</html>

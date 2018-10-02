@@ -1,0 +1,28 @@
+{% extends 'shared.html' %} 
+{% block titulo %} 
+	<h3>Administracion de Articulos</h3> 
+	<p>Bienvenidos al administrador de Articulos</p> 
+{% endblock %} 
+{% block content%} 
+	<div class="table-responsive"> 
+		<table class="table table-hover"> 
+			<tr class="success"> 
+				<th>codigo</th> 
+				<th>articulo</th> 
+				<th>Estado</th> 
+			</tr>
+			{% for articulo in object_list %} 
+			<tr> 
+				<td>{{ articulo.codigoArticulo}}</td> 
+				<td>{{ articulo.nombreArticulo}}</td> 
+				{% if articulo.prestado == False %} 
+					<td>Disponible</td> 
+				{% endif%} 
+				{% if articulo.prestado == True %} 
+					<td>Prestado</td> 
+				{% endif%} 
+			</tr> 
+			{% endfor %} 
+		</table> 
+	</div>
+{% endblock %}
